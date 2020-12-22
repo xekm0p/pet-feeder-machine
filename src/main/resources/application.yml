@@ -1,1 +1,27 @@
 
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3308/pet_feeder?useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: admin
+    password: admin
+
+#server:
+#  ssl:
+#    key-alias: https-example
+#    key-store-type: JKS
+#    key-password: password
+#    key-store: classpath:https-exaple.jks
+
+  liquibase:
+    change-log: classpath:db/master.xml
+
+solace:
+  java:
+    host: tcp://localhost:55555
+    msgVpn: default
+    clientUsername: default
+    clientPassword: default

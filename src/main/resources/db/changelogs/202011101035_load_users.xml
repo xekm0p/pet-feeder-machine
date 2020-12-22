@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <property name="autoIncrement" value="true"/>
+
+    <changeSet id="202011101034" author="Aleksandar Tonev">
+        <createTable
+                schemaName="pet_feeder"
+                tableName="user">
+
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="username" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="password" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="email" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="first_name" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+
+
+            <column name="last_name" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+
+        </createTable>
+
+        <addUniqueConstraint columnNames="username"
+                             constraintName="const_username"
+                             schemaName="pet_feeder"
+                             tableName="user"/>
+
+        <addUniqueConstraint columnNames="email"
+                             constraintName="const_email"
+                             schemaName="pet_feeder"
+                             tableName="user"/>
+    </changeSet>
+
+</databaseChangeLog>
