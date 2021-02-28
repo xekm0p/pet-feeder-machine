@@ -1,6 +1,12 @@
 
 server:
   port: 8081
+  ssl:
+    enabled: true
+    key-store: src/main/resources/bootsecurity.p12
+    key-store-password: ssasha
+    key-store-type: PKCS12
+    kkey-alias: bootsecurity
 
 spring:
   datasource:
@@ -25,3 +31,4 @@ solace:
     msgVpn: default
     clientUsername: default
     clientPassword: default
+
